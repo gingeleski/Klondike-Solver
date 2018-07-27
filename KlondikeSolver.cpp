@@ -45,6 +45,7 @@ int main(int argc, char * argv[]) {
 	string fileContents;
 	bool replay = false;
 	bool showMoves = false;
+	bool printPartials = false;
 
 	for (int i = 1; i < argc; i++) {
 		if (_stricmp(argv[i], "-draw") == 0 || _stricmp(argv[i], "/draw") == 0 || _stricmp(argv[i], "-dc") == 0 || _stricmp(argv[i], "/dc") == 0) {
@@ -87,6 +88,8 @@ int main(int argc, char * argv[]) {
 			showMoves = true;
 		} else if (_stricmp(argv[i], "-r") == 0 || _stricmp(argv[i], "/r") == 0) {
 			replay = true;
+		} else if (_stricmp(argv[i], "-pp") == 0 || _stricmp(argv[i], "/pp") == 0) {
+			printPartials = true;
 		} else if (_stricmp(argv[i], "-?") == 0 || _stricmp(argv[i], "/?") == 0 || _stricmp(argv[i], "?") == 0 || _stricmp(argv[i], "/help") == 0 || _stricmp(argv[i], "-help") == 0) {
 			cout << "Klondike Solver V2.0\nSolves games of Klondike (Patience) solitaire minimally or a faster best try.\n\n";
 			cout << "KlondikeSolver [/DC] [/D] [/G] [/O] [/M] [/S] [/F] [/R] [/MVS] [Path]\n\n";
@@ -180,8 +183,10 @@ int main(int argc, char * argv[]) {
 			canReplay = true;
 		} else if (result == Impossible) {
 			cout << "Impossible. Max cards in foundation " << s.FoundationCount() << " at " << s.MovesMadeNormalizedCount() << " moves.";
+			canReplay = printPartials;
 		} else if (result == CouldNotComplete) {
 			cout << "Unknown. Max cards in foundation " << s.FoundationCount() << " at " << s.MovesMadeNormalizedCount() << " moves.";
+			canReplay = printPartials;
 		}
 		cout << " Took " << (clock() - total) << " ms.\n";
 
