@@ -101,13 +101,15 @@ int main(int argc, char * argv[]) {
 			cout << "  /MULTI # [/M #]       Uses # threads to solve deals.\n";
 			cout << "                        Only works when solving minimally.\n\n";
 			cout << "  /OUT # [/O #]         Sets the output method of the solver.\n";
-			cout << "                        Defaults to 0, 1 for Pysol, and 2 for minimal output.\n";
+			cout << "                        Defaults to 0, 1 for Pysol, and 2 for minimal output.\n\n";
 			cout << "  /MOVES [/MVS]         Will also output a compact list of moves made when a\n";
-			cout << "                        solution is found.";
+			cout << "                        solution is found.\n\n";
 			cout << "  /STATES # [/S #]      Sets the maximum number of game states to evaluate\n";
 			cout << "                        before terminating. Defaults to 5,000,000.\n\n";
 			cout << "  /FAST [/F]            Run the solver in a best attempt mode, which is\n";
-			cout << "                        faster, but not guaranteed to give minimal solution.\n";
+			cout << "                        faster, but not guaranteed to give minimal solution.\n\n";
+			cout << "  /PP					 Prints partial solutions when solving is 'impossible'\n";
+			cout << "						 or 'unknown'.\n";
 			return 0;
 		} else {
 			if (commandLoaded) { cout << "Only one method can be specified (deck/game/file)."; return 0; }

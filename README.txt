@@ -25,6 +25,8 @@ FilePath - Solves deals specified in the file.
 
 /FAST [/F] - Run the solver in a best attempt mode, which is faster, but not guaranteed to give minimal solution or one at all.
 
+/PP - Prints partial solutions when solving is 'impossible' or 'unknown'.
+
 ========================
 NOTES:
 
